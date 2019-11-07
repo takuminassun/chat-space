@@ -1,0 +1,15 @@
+.chat__side
+  .chat__side__header
+    .chat__side__header__box
+      %p.chat__side__header__box__user-name seo
+      %ul.chat__side__header__box__menu
+        %li.chat__side__header__box__menu__new-group
+          =link_to "#", class: "contents__btn" do
+            = fa_icon 'edit'
+        %li.chat__side__header__box__menu__edit-user
+          =link_to "#", class: "contents__btn" do
+            = fa_icon 'cog'
+  .chat__side__groups
+    .chat__side__groups__contents
+      %p.chat__side__groups__contents-name sample
+      %p.chat__side__groups__contents-message Good bye world!
