@@ -1,0 +1,31 @@
+.chat_all
+  .chat__main
+    .chat__main__header
+      .chat__main__header__left
+        %h2.chat__main__header__left__name 
+          = @group.name
+        %ul.chat__main__header__left__member 
+          Member: 
+          - @group.users.each do |user|
+            = user.name
+      .chat__main__header__right
+        .chat__main__header__right 
+          =link_to edit_group_path(@group) do
+            %h3.chat__main__header__right__btn
+              Edit
+
+    .messages
+      = render partial: 'message', collection: @messages
+      -# .messages__info 
+      -#   .messages__info__talker shouya
+      -#   .messages__info__date 2019/10/08/19:14:39
+      -# .messages__text this is a first message
+
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
