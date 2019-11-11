@@ -3,12 +3,15 @@ class GroupsController < ApplicationController
 
   
   def index
+    # @group = Group.new
+    # @message = Message.new
   end
   
   def new
     @group = Group.new
     @group.users << current_user
   end
+
 
   def create
     @group = Group.new(group_params)
@@ -20,6 +23,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
