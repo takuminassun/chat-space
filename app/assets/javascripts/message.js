@@ -1,42 +1,26 @@
 $(function(){
 
   function buildHTML(message){
-    if ( message.image.url){
-      var html = `<div class="message">
-                    <div class="messages__info">
-                      <div class="messages__info__talker">
-                        ${message.user_name}
-                      </div>
-                      <div class="messages__info__date">
-                        ${message.date}
-                      </div>
+    image = (message.image.url) ?  `<img src =${message.image.url}>`: "";
+    
+    var html = `<div class="message">
+                  <div class="messages__info">
+                    <div class="messages__info__talker">
+                      ${message.user_name}
                     </div>
-                    <div class="messages__text">
-                      <p class="lower-message__content">
-                        ${message.content}
-                      </p>
+                    <div class="messages__info__date">
+                      ${message.date}
                     </div>
-                    <img src =${message.image.url}>
-                  </div>`
-      return html;
-    }else {
-      var html = `<div class="message">
-                    <div class="messages__info">
-                      <div class="messages__info__talker">
-                        ${message.user_name}
-                      </div>
-                      <div class="messages__info__date">
-                        ${message.date}
-                      </div>
-                    </div>
-                    <div class="messages__text">
-                      <p class="lower-message__content">
-                        ${message.content}
-                      </p>
-                    </div>
-                  </div>`
-      return html;
-    };
+                  </div>
+                  <div class="messages__text">
+                    <p class="lower-message__content">
+                      ${message.content}
+                    </p>
+                  </div>
+                  <img src =${image}>
+                </div>`
+    return html;
+    
   }
   $('#new_message').on('submit', function(e){
     e.preventDefault()
@@ -63,3 +47,4 @@ $(function(){
     return false;
   });
 });
+
