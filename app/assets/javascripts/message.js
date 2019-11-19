@@ -63,8 +63,7 @@ $(function(){
           insertHTML = buildHTML(message);
           $('.message').append(insertHTML);
           $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-        })
-        
+        });
       })
       .fail(function(){
         alert('自動更新に失敗しました');
