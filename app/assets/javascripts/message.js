@@ -59,10 +59,11 @@ $(function(){
       .done(function(messages){
         var insertHTML = '';
         messages.forEach(function(message){
-          if(message.id > last_message_id.id)
-          insertHTML = buildHTML(message);
-          $('.message').append(insertHTML);
-          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+          if(message.id > last_message_id){
+            insertHTML = buildHTML(message);
+            $('.messages').append(insertHTML);
+            $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+          }
         });
       })
       .fail(function(){
